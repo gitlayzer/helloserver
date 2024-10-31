@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the httpserver
+      run: docker build --rm --build-arg TARGET=helloserver_http_server -t helloserver_http_server:$(date +%s) .
+    - name: Build the grpcserver
+      run: docker build --rm --build-arg TARGET=helloserver_grpc_server -t helloserver_grpc_server:$(date +%s) .
+
