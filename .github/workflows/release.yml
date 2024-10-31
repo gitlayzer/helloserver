@@ -21,6 +21,9 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
+        compress_assets: auto
+        md5sum: false
+        retry: 3
         ldflags: "-s -w"
         goversion: "https://dl.google.com/go/go1.22.8.linux-amd64.tar.gz"
         project_path: "./helloserver_http_server"
@@ -31,6 +34,9 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: ${{ matrix.goos }}
         goarch: ${{ matrix.goarch }}
+        compress_assets: auto
+        md5sum: false
+        retry: 3
         ldflags: "-s -w"
         goversion: "https://dl.google.com/go/go1.22.8.linux-amd64.tar.gz"
         project_path: "./helloserver_grpc_server"
