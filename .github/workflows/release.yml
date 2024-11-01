@@ -1,3 +1,5 @@
+name: Push Release
+
 on:
   release:
     types: [created, published]
